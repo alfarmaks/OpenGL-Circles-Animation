@@ -1,4 +1,4 @@
-// Circle.cpp: определяет точку входа для консольного приложения.
+// Circle.cpp: Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГІ ГІГ®Г·ГЄГі ГўГµГ®Г¤Г  Г¤Г«Гї ГЄГ®Г­Г±Г®Г«ГјГ­Г®ГЈГ® ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї.
 //
 
 #include <Windows.h>
@@ -14,11 +14,11 @@
 bool flag = false;
 
 void DrawField(float x0, float y0){
+	//set color of circle
 	glColor3f(1.0, 1.0, 0.0);
+	//set size of point
 	glPointSize(4);
-	//glPushMatrix();
-	//for (int j = 0; j < 8; ++j){
-		//glRotatef(-45 * j, 0, 0, 1);
+	//Drawing
 	glBegin(GL_POINTS);
 	int num_segments = 5000;
 	for (int i = 0; i < num_segments; ++i){
@@ -28,26 +28,30 @@ void DrawField(float x0, float y0){
 		glVertex2f(x + x0, y + y0);//output vertex 
 	}
 	glEnd();
-		//glPopMatrix();
-	//}
 }
 
 void Tick(float k = 0){
+	//Clear color buffer bit
 	glClear(GL_COLOR_BUFFER_BIT);
+	//Remember state of matrix
 	glPushMatrix();
 	for (int j = 0; j < 8; ++j){
 		DrawField(k, 0);
+		//rotate circle
 		glRotatef(-45 * (j+1), 0, 0, 1);
 	}
+	//Restore transformation
 	glPopMatrix();
+	//Clear stack after drawing
 	glFlush();
+	//System sleep for 100 mls
 	Sleep(100);
 }
 
 void display()
 {
-	glClearColor(0, 0, 0, 0); // цвет фона
-	glClear(GL_COLOR_BUFFER_BIT); // очистка буфера цвета
+	glClearColor(0, 0, 0, 0); 
+	glClear(GL_COLOR_BUFFER_BIT); 
 	glColor3f(1, 1, 1);
 	glFlush();
 }
@@ -55,11 +59,13 @@ void display()
 void timer(int = 0){
 	Sleep(1000);
 	if (!flag){
+		//draw circles
 		for (float i = 0.f; i <= 1.65f; i += 0.2f){
 			Tick(i);
 		}
 	}
 	else{
+		//draw circles
 		for (float i = 1.65f; i >= 0.f; i -= 0.2f){
 			Tick(i);
 		}
