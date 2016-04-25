@@ -1,5 +1,3 @@
-// Circle.cpp: îïðåäåëÿåò òî÷êó âõîäà äëÿ êîíñîëüíîãî ïðèëîæåíèÿ.
-//
 
 #include <Windows.h>
 #include <time.h>
