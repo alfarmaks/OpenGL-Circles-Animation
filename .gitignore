@@ -1,0 +1,10 @@
+Debug/
+*.vcxproj
+*.sln
+*.filters
+*.h
+stdafx.cpp
+ReadMe.txt
+*.opensdf
+*.suo
+*.sdf
